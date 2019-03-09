@@ -1,0 +1,114 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Avenir Next", "Avenir",
+    "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans",
+    "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu",
+    "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+    // padding: 10vh;
+    margin: 0;
+}
+
+#info {
+  background-color: #0c0c0c;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 16em;
+  width: 100%;
+  z-index: 2;
+
+  div {
+    text-align: center;
+    width: inherit;
+
+    &.game-detail {
+      display: none;
+    }
+
+    section {
+      flex: 1;
+    }
+
+  }
+}
+
+.game-detail-show {
+  display: block !important;
+}
+
+.digit-hide {
+  visibility: hidden;
+}
+
+.digit-show {
+  visibility: visible;
+}
+
+
+#poster {
+  margin-top: 12em;
+  padding-top: 4em;
+  z-index: 1;
+  // text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: left;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    flex: 1;
+    box-sizing: border-box;
+  }
+}
+
+$colors: (
+'0': #DFDFDF,
+'1': #7A9ABD,
+'2': #E73043,
+'3': #C42939,
+'4': #A77D5E,
+'5': #2D4488,
+'6': #E73043,
+'7': #6B6A8A,
+'8': #547B9F,
+'9': #8F1D2C
+);
+
+@each $outer-digit, $outer-color in $colors {
+
+  .number-#{$outer-digit} {
+    background-color: $outer-color;
+    color: white;
+  }
+
+  @each $inner-digit, $inner-color in $colors {
+
+    .pi-#{$outer-digit}#{$inner-digit} {
+    	background: $inner-color;
+    	border-radius: 50%;
+    	height: 36px;
+    	width: 36px;
+      position: relative;
+      box-shadow: 0 0 0 18px $outer-color;
+      margin: 36px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 1em;
+    }
+  }
+}
