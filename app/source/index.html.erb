@@ -7,18 +7,12 @@ title: Welcome to Baseball PI Day
     <div id="info-pi-<%= item['id'] %>" class="game-detail">
       <section>
         <h1 class="pi"><%= item['pi_slice'] %> is the  <%= item['slice_pos'].to_i.ordinalize %> pair of decimals of Π</h1>
-        <h4>
-          and the score at the <%= item['inning_half'] %> of the <%= item['inning'].to_i.ordinalize %>
-        </h4>
-        <h2>
-          <% if item['home_away_score_pair'] == item['pi_slice'] %>
+        <h2>with the score at the <%= item['inning_half'] %> of the <%= item['inning'].to_i.ordinalize %></h2>
+        <h3><% if item['home_away_score_pair'] == item['pi_slice'] %>
             <%= item['home_team_nickname'] %> vs <%= item['away_team_nickname'] %>
           <% else %>
             <%= item['away_team_nickname'] %> vs <%= item['home_team_nickname'] %>
-          <% end %>
-        </h2>
-      </section>
-      <section>
+          <% end %></h3>
         <h3><%= DateTime.parse(item['started_at']).strftime('%B %d, %Y') %></h3>
         <h5>
             <%= item['home_team_nickname'] %> go on to <%= item['home_team_outcome'].gsub('ss','se') %>
