@@ -17,6 +17,7 @@ function animateCSS(element, animationName, callback) {
 $( document ).ready(function() {
   $( "li" ).hover(
     function() {
+      $("#instructions").hide();
       id = "#" + $( this ).attr("id");
       infoId = "#info-"+ $( this ).attr("id");
       digitId = "#digit-"+ $( this ).attr("id");
@@ -24,6 +25,7 @@ $( document ).ready(function() {
       $(infoId).addClass( 'game-detail-show' );
       // $(digitId).addClass( 'digit-show' );
     }, function() {
+      $("#instructions").show();
       id = $( this ).attr("id");
       infoId = "#info-"+ $( this ).attr("id");
       digitId = "#digit-"+ $( this ).attr("id");
@@ -32,5 +34,5 @@ $( document ).ready(function() {
     }
   );
 
-  console.log('hi');
+  console.log('Happy ' + Math.PI + ' Day!');
 });

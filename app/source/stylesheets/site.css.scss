@@ -14,9 +14,9 @@ a {
 }
 
 h1 {
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1em;
-  margin: 1;
+  margin: 0.5em;
 }
 
 h2 {
@@ -26,8 +26,9 @@ h2 {
 
 }
 
-h3 {
-  font-size: 1.5em;
+h3, h4 {
+  font-size: 1em;
+  font-weight: normal;
   line-height: 1em;
   margin: 1;
 }
@@ -44,23 +45,23 @@ body {
 }
 
 footer {
-  background-color: #0c0c0c;
+  background-color: #000000;
   position: fixed;
   bottom: 0;
   left: 0;
   text-align: center;
-  height: 8em;
+  //height: 8em;
   width: 100%;
   z-index: 3;
   padding: 0.25em;
 }
 
 #info {
-  background-color: #0c0c0c;
+  background-color: #000000;
   position: fixed;
   top: 0;
   left: 0;
-  height: 16em;
+  min-height: 16em;
   width: 100%;
   z-index: 2;
 
@@ -120,14 +121,14 @@ ul {
 $colors: (
 '0': #DFDFDF,
 '1': #7A9ABD,
-'2': #E73043,
-'3': #C42939,
-'4': #A77D5E,
-'5': #2D4488,
+'2': #6B6A8A,
+'3': #547B9F,
+'4': #2D4488,
+'5': #CD4B56,
 '6': #E73043,
-'7': #6B6A8A,
-'8': #547B9F,
-'9': #8F1D2C
+'7': #C42939,
+'8': #8F1D2C,
+'9': #A77D5E
 );
 
 @each $outer-digit, $outer-color in $colors {
@@ -137,7 +138,18 @@ $colors: (
     color: white;
   }
 
+  .digit-#{$outer-digit} {
+    color: $outer-color;
+  }
+
   @each $inner-digit, $inner-color in $colors {
+
+    .pair-#{$outer-digit}#{$inner-digit} {
+            color: $inner-color;
+      &::first-letter {
+        color: $outer-color;
+      }
+    }
 
     .pi-#{$outer-digit}#{$inner-digit} {
     	background: $inner-color;
