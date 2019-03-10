@@ -1,0 +1,7 @@
+<section id="poster">
+  <ul>
+    <% data.digits.each do |item| %>
+      <%= partial "pi", locals: { item: item } %>
+    <% end %>
+  </ul>
+</section>

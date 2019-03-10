@@ -6,44 +6,8 @@ title: Welcome to Baseball PI Day
   <div id="instructions">
     <h1>Pick a Game Pi</h1>
   </div>
-  <% data.digits.each do |item| %>
-    <div id="info-pi-<%= item['id'] %>" class="game-detail">
-      <section>
-        <h1 class="pair-<%= item['pi_slice'] %>">
-          <%= item['pi_slice'] %>
-        </h1>
-        <h1>
-          <%= item['slice_pos'].to_i.ordinalize %> decimal pair of Π
-        </h1>
-        <h2><% if item['home_away_score_pair'] == item['pi_slice'] %>
-            <span class="digit-<%= item['home_team_score'] %>"><%= item['home_team_nickname'] %> <%= item['home_team_score'] %></span> -
-            <span class="digit-<%= item['away_team_score'] %>"><%= item['away_team_nickname'] %> <%= item['away_team_score'] %></span>
-          <% else %>
-            <span class="digit-<%= item['away_team_score'] %>"><%= item['away_team_nickname'] %> <%= item['away_team_score'] %></span> -
-            <span class="digit-<%= item['home_team_score'] %>"><%= item['home_team_nickname'] %> <%= item['home_team_score'] %></span>
-          <% end %>
-        </h2>
-        <h3>at the <%= item['inning_half'] %> of the <span class="digit-<%= item['inning'] %>"><%= item['inning'].to_i.ordinalize %></span> on <%= DateTime.parse(item['started_at']).strftime('%B %d, %Y') %> at <%= item['venue_name'] %></h3>
-        <h4>
-            <%= item['home_team_nickname'] %> go on to <%= item['home_team_outcome'].gsub('ss','se') %>
-            <span class="digit-<%= item['home_team_final_score'] %>"><%= item['home_team_final_score'] %></span> to
-            <span class="digit-<%= item['away_team_final_score'] %>"><%= item['away_team_final_score'] %></span>
-        </h4>
-      </section>
-    </div>
-  <% end %>
+
+  <%= partial "games" %>
 </section>
 
-<section id="poster">
-  <ul>
-    <% data.digits.each do |item| %>
-      <li id="pi-<%= item['id'] %>">
-        <div class="pi-<%= item['pi_slice'] %>">
-          <span id="digit-<%= item['id'] %>">
-
-          </span>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
+<%= partial "pis" %>

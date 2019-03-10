@@ -1,0 +1,49 @@
+<% data.digits.each do |item| %>
+  <div id="info-pi-<%= item['id'] %>" class="game-detail">
+    <section>
+      <% content_tag :h1, class: "pair-#{item['pi_slice']}" do %>
+        <%= item['pi_slice'] %>
+      <% end %>
+
+      <% content_tag :h1 do %>
+        <%= item['slice_pos'].to_i.ordinalize %> decimal pair of Π
+      <% end %>
+
+      <% content_tag :h1 do %>
+        <% if item['home_away_score_pair'] == item['pi_slice'] %>
+          <% first_team = 'home' %>
+          <% second_team = 'away' %>
+        <% else %>
+          <% first_team = 'away' %>
+          <% second_team = 'home' %>
+        <% end %>
+
+        <% [first_team, second_team].each do |team| %>
+          <% content_tag :span, class: "digit-#{item["#{team}_team_score"]}" do %>
+            <%= item["#{team}_team_nickname"] %> <%= item["#{team}_team_score"] %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% content_tag :h3 do %>
+        at the <%= item['inning_half'] %> of the
+        <% content_tag :span, class: "digit-#{item['inning']}" do %>
+          <%= item['inning'].to_i.ordinalize %>
+        <% end %>
+        on <%= DateTime.parse(item['started_at']).strftime('%B %d, %Y') %>
+        at <%= item['venue_name'] %>
+      <% end %>
+
+      <% content_tag :h4 do %>
+          <%= item['home_team_nickname'] %> go on to <%= item['home_team_outcome'].gsub('ss','se') %>
+          <% content_tag :span, class: "digit-#{item['home_team_final_score']}" do %>
+            <%= item['home_team_final_score'] %>
+          <% end %>
+          to
+          <% content_tag :span, class: "digit-#{item['away_team_final_score']}" do %>
+            <%= item['away_team_final_score'] %>
+          <% end %>
+        <% end %>
+    </section>
+  </div>
+<% end %>
