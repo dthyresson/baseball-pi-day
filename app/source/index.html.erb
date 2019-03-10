@@ -6,14 +6,14 @@ title: Welcome to Baseball PI Day
   <% data.digits.each do |item| %>
     <div id="info-pi-<%= item['id'] %>" class="game-detail">
       <section>
-        <h1 class="pi"><%= item['pi_slice'] %> is the  <%= item['slice_pos'].to_i.ordinalize %> pair of decimals of Π</h1>
+        <h1 class="pi"><%= item['pi_slice'] %> is the  <%= item['slice_pos'].to_i.ordinalize %> pair of decimals in Π</h1>
         <h2><% if item['home_away_score_pair'] == item['pi_slice'] %>
             <%= item['home_team_nickname'] %> <%= item['home_team_score'] %> - <%= item['away_team_nickname'] %> <%= item['away_team_score'] %>
           <% else %>
             <%= item['away_team_nickname'] %> <%= item['away_team_score'] %> - <%= item['home_team_nickname'] %> <%= item['home_team_score'] %>
           <% end %>
         at the <%= item['inning_half'] %> of the <%= item['inning'].to_i.ordinalize %></h2>
-        <h4><%= DateTime.parse(item['started_at']).strftime('%B %d, %Y') %></h4>
+        <h4><%= DateTime.parse(item['started_at']).strftime('%B %d, %Y') %> at <%= item['venue_name'] %></h4>
         <h4>
             <%= item['home_team_nickname'] %> go on to <%= item['home_team_outcome'].gsub('ss','se') %>
             <%= item['home_team_final_score'] %>-<%= item['away_team_final_score'] %>

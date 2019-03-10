@@ -15,10 +15,19 @@ pi_slices as (select *, row_number() over() as slice_pos, digit::text || next_di
 , t2 as
 (
 
-select slice_pos, pi_slice, s.*, g.started_at AT TIME ZONE 'EST' as started_at, g.home_team_score as home_team_final_score, g.away_team_score as away_team_final_score, row_number() over (partition by slice_pos order by random()) as r
+select 
+  slice_pos
+, pi_slice
+, s.*
+, g.started_at AT TIME ZONE 'EST' as started_at
+, g.home_team_score as home_team_final_score
+, g.away_team_score as away_team_final_score
+, v.name as venue_name
+, row_number() over (partition by slice_pos order by random()) as r
 from pi_slices
 join baseball_game_inning_scores s on s.home_away_score_pair = pi_slices.pi_slice or s.away_home_score_pair = pi_slices.pi_slice
 join games g on g.id = s.game_id
+join venues v on v.id = g.venue_id
 order by pos
 )
 
