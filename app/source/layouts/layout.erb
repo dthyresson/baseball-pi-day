@@ -5,8 +5,22 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Use the title from a page's frontmatter if it has one -->
-    <title><%= current_page.data.title || "Middleman" %></title>
+
+    <meta property="og:title" content="Baseball PI Day">
+    <meta property="og:description" content="5,000 decimals of PI as pairs of in-game baseball inning scores.">
+    <meta name="description" content="5,000 decimals of PI as pairs of in-game baseball inning scores.">
+
+    <meta property="og:image" content="http://euro-travel-example.com/thumbnail.jpg">
+    <meta property="og:url" content="https://baseballpiday.com">
+    <meta name="twitter:card" content="https://baseballpiday.com/images/pis.png">
+
+    <meta property="og:image" content="https://baseballpiday.com/images/pis.pn" />
+    <meta property="og:site_name" content="Baseball PI Day">
+    <meta name="twitter:image:alt" content="Alt text for image">
+
+    <meta name="twitter:site" content="@dthyresson">
+
+    <title>Baseball PI Day</title>
     <%= stylesheet_link_tag "site" %>
     <%= stylesheet_link_tag "//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" %>
     <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" %>
@@ -17,7 +31,7 @@
     <%= yield %>
   </body>
   <footer>
-    <p>5,000 <a href="http://digitsofpi.com/Top-5000-Digits-Of-Pi.htm" target="_blank">decimals of PI</a> as in-game baseball inning scores.</p>
+    <p>5,000 <a href="http://digitsofpi.com/Top-5000-Digits-Of-Pi.htm" target="_blank">decimals of PI</a> as pairs of in-game baseball inning scores.</p>
     <p>A hack for <a href="http://www.baseballhackday.com/boston/" target="_blank">Boston Baseball Hackday 2019</a> by <a href="https://github.com/dthyresson/baseball-pi-day" target="_blank">A. David Thyresson</a>.</p>
     <p>Design inspired by <a href="http://mkweb.bcgsc.ca/pi/piday/posters.mhtml">2013 PI Day Poster</a> by <a href="http://mkweb.bcgsc.ca/" target="_blank">Martin Krzywinski</a>.</p>
   </footer>
