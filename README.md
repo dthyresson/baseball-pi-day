@@ -2,6 +2,8 @@
 
 A project for Boston Baseball Hackday 2019.
 
+[Demo][https://baseballpiday.com/]
+
 ## Inspiration
 
 The inspiration for this hack was http://mkweb.bcgsc.ca/pi/piday/ poster for the 2013 Pi Day by Martin Krzywinski.
