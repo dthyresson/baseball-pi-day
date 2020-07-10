@@ -2,7 +2,7 @@
 
 A project for Boston Baseball Hackday 2019.
 
-[Demo][https://baseballpiday.com/]
+[Demo](https://baseballpiday.com/)
 
 ## Inspiration
 
