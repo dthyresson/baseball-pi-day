@@ -1,0 +1,13 @@
+{
+  "name": "api",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@redwoodjs/api": "^0.27.1"
+  },
+  "devDependencies": {
+    "camelcase-keys": "^6.2.2",
+    "date-fns": "^2.19.0",
+    "fast-csv": "^4.3.6"
+  }
+}

@@ -1,0 +1,72 @@
+datasource DS {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  binaryTargets   = "native"
+  previewFeatures = "createMany"
+}
+
+model PiTuplet {
+  id                   String   @id @default(uuid())
+  tupletId             String
+  slicePos             Int      @unique
+  piSlice              String
+  leagueId             String
+  leagueName           String
+  leagueAbbreviation   String
+  seasonId             String
+  seasonName           String
+  gameId               String
+  gameSlug             String
+  homeTeamId           String
+  homeTeamName         String
+  homeTeamLocation     String
+  homeTeamNickname     String
+  homeTeamAbbreviation String
+  awayTeamId           String
+  awayTeamName         String
+  awayTeamLocation     String
+  awayTeamNickname     String
+  awayTeamAbbreviation String
+  intervalType         String
+  inning               Int
+  clockSeconds         Int
+  inningHalf           String
+  homeTeamScore        Int
+  awayTeamScore        Int
+  totalScore           String
+  homeAwayScorePair    String
+  awayHomeScorePair    String
+  homeTeamOutcome      String
+  awayTeamOutcome      String
+  isOver               Boolean
+  startedAt            DateTime
+  homeTeamFinalScore   Int
+  awayTeamFinalScore   Int
+  venueName            String
+  r                    Int
+
+  @@index([tupletId])
+  @@index([slicePos])
+  @@index([piSlice])
+  @@index([leagueId])
+  @@index([leagueName])
+  @@index([leagueAbbreviation])
+  @@index([seasonId])
+  @@index([seasonName])
+  @@index([gameId])
+  @@index([gameSlug])
+  @@index([homeTeamId])
+  @@index([homeTeamName])
+  @@index([homeTeamLocation])
+  @@index([homeTeamNickname])
+  @@index([homeTeamAbbreviation])
+  @@index([awayTeamId])
+  @@index([awayTeamName])
+  @@index([awayTeamLocation])
+  @@index([awayTeamNickname])
+  @@index([awayTeamAbbreviation])
+}
