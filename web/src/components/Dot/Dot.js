@@ -60,9 +60,9 @@ const Dot = ({ piTuplet }) => {
 
   return (
     <p
-      className={`flex justify-center place-items-center h-16 w-16 my-4 border-10 border-solid rounded-full text-gray-50 ${fillingColor} ${crustColor}`}
+      className={`flex justify-center place-items-center h-16 w-16 my-4 border-10 border-solid rounded-full text-transparent hover:text-gray-50 ${fillingColor} ${crustColor}`}
     >
-      {piTuplet.piSlice}
+      <span className="animate-pulse">{piTuplet.piSlice}</span>
     </p>
   )
 }
